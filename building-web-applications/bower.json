@@ -1,0 +1,17 @@
+{
+  "name": "building-web-applications",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "'Chris <'C.Odegard@gmail.com'>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
