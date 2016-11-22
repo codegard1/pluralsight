@@ -15,9 +15,7 @@ gulp.task('style', function () {
 });
 
 gulp.task('fix', function () {
-	gulp.src('src/app.js')
-		.pipe(jscs({
-			fix: true
-		}))
+	gulp.src(jsFiles)
+		.pipe(jscs({fix: true}))
 		.pipe(gulp.dest('src'));
 });
