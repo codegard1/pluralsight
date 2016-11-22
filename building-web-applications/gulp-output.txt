@@ -1,84 +1,9 @@
-[11:12:16] Using gulpfile ~\github\pluralsight\building-web-applications\gulpfile.js
-[11:12:16] Starting 'style'...
-[11:12:16] Finished 'style' after 503 ms
-disallowSpacesInsideParentheses: Illegal space after opening round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     3 |var port = 5000;
-     4 |
-     5 |app.use( express.static( 'public' ));
-----------------^
-     6 |app.use( express.static( 'src/views' ));
-     7 |
-
-disallowSpacesInsideParentheses: Illegal space after opening round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     3 |var port = 5000;
-     4 |
-     5 |app.use( express.static( 'public' ));
---------------------------------^
-     6 |app.use( express.static( 'src/views' ));
-     7 |
-
-disallowSpacesInsideParentheses: Illegal space before closing round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     3 |var port = 5000;
-     4 |
-     5 |app.use( express.static( 'public' ));
------------------------------------------^
-     6 |app.use( express.static( 'src/views' ));
-     7 |
-
-disallowSpacesInsideParentheses: Illegal space after opening round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     4 |
-     5 |app.use( express.static( 'public' ));
-     6 |app.use( express.static( 'src/views' ));
-----------------^
-     7 |
-     8 |app.get('/', function(req, res){
-
-disallowSpacesInsideParentheses: Illegal space after opening round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     4 |
-     5 |app.use( express.static( 'public' ));
-     6 |app.use( express.static( 'src/views' ));
---------------------------------^
-     7 |
-     8 |app.get('/', function(req, res){
-
-disallowSpacesInsideParentheses: Illegal space before closing round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     4 |
-     5 |app.use( express.static( 'public' ));
-     6 |app.use( express.static( 'src/views' ));
---------------------------------------------^
-     7 |
-     8 |app.get('/', function(req, res){
-
-requireSpaceBeforeBlockStatements: One (or more) spaces required before opening brace for block expressions at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-     6 |app.use( express.static( 'src/views' ));
-     7 |
-     8 |app.get('/', function(req, res){
----------------------------------------^
-     9 |    res.send('Hello, world');
-    10 |});
-
-requireSpaceBeforeBlockStatements: One (or more) spaces required before opening brace for block expressions at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-    10 |});
-    11 |
-    12 |app.get('/books', function(req, res){
---------------------------------------------^
-    13 |    res.send('Hello books');
-    14 |});
-
-requireSpaceBeforeBlockStatements: One (or more) spaces required before opening brace for block expressions at C:\Users\n501457\github\pluralsight\building-web-applications\app.js :
-    14 |});
-    15 |
-    16 |app.listen(port, function(err){
---------------------------------------^
-    17 |    console.log('running server on port ' + port);
-    18 |});
-
-
-9 code style errors found.
+[11:35:34] Using gulpfile ~\github\pluralsight\building-web-applications\gulpfile.js
+[11:35:34] Starting 'style'...
 validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
      6 |
      7 |gulp.task('style', function () {
-     8 | gulp.src( jsFiles ) 
+     8 | return gulp.src(jsFiles)
 --------^
      9 |  .pipe(jshint())
     10 |  .pipe(jshint.reporter('jshint-stylish', {
@@ -86,58 +11,26 @@ validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github
 validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
      6 |
      7 |gulp.task('style', function () {
-     8 | gulp.src( jsFiles ) 
+     8 | return gulp.src(jsFiles)
 --------^
-     9 |  .pipe(jshint())
-    10 |  .pipe(jshint.reporter('jshint-stylish', {
-
-disallowSpacesInsideParentheses: Illegal space after opening round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
-     6 |
-     7 |gulp.task('style', function () {
-     8 | gulp.src( jsFiles ) 
-------------------^
-     9 |  .pipe(jshint())
-    10 |  .pipe(jshint.reporter('jshint-stylish', {
-
-disallowSpacesInsideParentheses: Illegal space before closing round bracket at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
-     6 |
-     7 |gulp.task('style', function () {
-     8 | gulp.src( jsFiles ) 
---------------------------^
-     9 |  .pipe(jshint())
-    10 |  .pipe(jshint.reporter('jshint-stylish', {
-
-disallowTrailingWhitespace: Illegal trailing whitespace at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
-     6 |
-     7 |gulp.task('style', function () {
-     8 | gulp.src( jsFiles ) 
-----------------------------^
      9 |  .pipe(jshint())
     10 |  .pipe(jshint.reporter('jshint-stylish', {
 
 validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
      7 |gulp.task('style', function () {
-     8 | gulp.src( jsFiles ) 
+     8 | return gulp.src(jsFiles)
      9 |  .pipe(jshint())
 --------^
     10 |  .pipe(jshint.reporter('jshint-stylish', {
     11 |   verbose: true
 
 validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
-     8 | gulp.src( jsFiles ) 
+     8 | return gulp.src(jsFiles)
      9 |  .pipe(jshint())
     10 |  .pipe(jshint.reporter('jshint-stylish', {
 --------^
     11 |   verbose: true
     12 |  }))
-
-validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
-     9 |  .pipe(jshint())
-    10 |  .pipe(jshint.reporter('jshint-stylish', {
-    11 |   verbose: true
---------^
-    12 |  }))
-    13 |  .pipe(jscs())
 
 validateIndentation: Expected indentation of 8 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
      9 |  .pipe(jshint())
@@ -147,7 +40,15 @@ validateIndentation: Expected indentation of 8 characters at C:\Users\n501457\gi
     12 |  }))
     13 |  .pipe(jscs())
 
-validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+     9 |  .pipe(jshint())
+    10 |  .pipe(jshint.reporter('jshint-stylish', {
+    11 |   verbose: true
+--------^
+    12 |  }))
+    13 |  .pipe(jscs())
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
     10 |  .pipe(jshint.reporter('jshint-stylish', {
     11 |   verbose: true
     12 |  }))
@@ -155,7 +56,7 @@ validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\gi
     13 |  .pipe(jscs())
     14 |  .pipe(jscs.reporter());
 
-validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
     10 |  .pipe(jshint.reporter('jshint-stylish', {
     11 |   verbose: true
     12 |  }))
@@ -179,5 +80,150 @@ validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github
     15 |});
     16 |
 
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    16 |
+    17 |gulp.task('fix', function () {
+    18 | return gulp.src(jsFiles)
+--------^
+    19 |  .pipe(jscs({fix: true}))
+    20 |  .pipe(gulp.dest('src'));
 
-13 code style errors found.
+validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    16 |
+    17 |gulp.task('fix', function () {
+    18 | return gulp.src(jsFiles)
+--------^
+    19 |  .pipe(jscs({fix: true}))
+    20 |  .pipe(gulp.dest('src'));
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    17 |gulp.task('fix', function () {
+    18 | return gulp.src(jsFiles)
+    19 |  .pipe(jscs({fix: true}))
+--------^
+    20 |  .pipe(gulp.dest('src'));
+    21 |});
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    18 | return gulp.src(jsFiles)
+    19 |  .pipe(jscs({fix: true}))
+    20 |  .pipe(gulp.dest('src'));
+--------^
+    21 |});
+    22 |
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    22 |
+    23 |gulp.task('inject', function () {
+    24 | var wiredep = require('wiredep').stream;
+--------^
+    25 | var options = {
+    26 |  bowerJson: require('./bower.json'),
+
+validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    22 |
+    23 |gulp.task('inject', function () {
+    24 | var wiredep = require('wiredep').stream;
+--------^
+    25 | var options = {
+    26 |  bowerJson: require('./bower.json'),
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    23 |gulp.task('inject', function () {
+    24 | var wiredep = require('wiredep').stream;
+    25 | var options = {
+--------^
+    26 |  bowerJson: require('./bower.json'),
+    27 |  directory: './public/lib'
+
+validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    23 |gulp.task('inject', function () {
+    24 | var wiredep = require('wiredep').stream;
+    25 | var options = {
+--------^
+    26 |  bowerJson: require('./bower.json'),
+    27 |  directory: './public/lib'
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    24 | var wiredep = require('wiredep').stream;
+    25 | var options = {
+    26 |  bowerJson: require('./bower.json'),
+--------^
+    27 |  directory: './public/lib'
+    28 | };
+
+validateIndentation: Expected indentation of 8 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    24 | var wiredep = require('wiredep').stream;
+    25 | var options = {
+    26 |  bowerJson: require('./bower.json'),
+--------^
+    27 |  directory: './public/lib'
+    28 | };
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    25 | var options = {
+    26 |  bowerJson: require('./bower.json'),
+    27 |  directory: './public/lib'
+--------^
+    28 | };
+    29 | return gulp.src('./src/views/*.html')
+
+validateIndentation: Expected indentation of 8 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    25 | var options = {
+    26 |  bowerJson: require('./bower.json'),
+    27 |  directory: './public/lib'
+--------^
+    28 | };
+    29 | return gulp.src('./src/views/*.html')
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    26 |  bowerJson: require('./bower.json'),
+    27 |  directory: './public/lib'
+    28 | };
+--------^
+    29 | return gulp.src('./src/views/*.html')
+    30 |  .pipe(wiredep(options))
+
+validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    26 |  bowerJson: require('./bower.json'),
+    27 |  directory: './public/lib'
+    28 | };
+--------^
+    29 | return gulp.src('./src/views/*.html')
+    30 |  .pipe(wiredep(options))
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    27 |  directory: './public/lib'
+    28 | };
+    29 | return gulp.src('./src/views/*.html')
+--------^
+    30 |  .pipe(wiredep(options))
+    31 |  .pipe(gulp.dest('./src/views'));
+
+validateIndentation: Expected indentation of 4 characters at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    27 |  directory: './public/lib'
+    28 | };
+    29 | return gulp.src('./src/views/*.html')
+--------^
+    30 |  .pipe(wiredep(options))
+    31 |  .pipe(gulp.dest('./src/views'));
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    28 | };
+    29 | return gulp.src('./src/views/*.html')
+    30 |  .pipe(wiredep(options))
+--------^
+    31 |  .pipe(gulp.dest('./src/views'));
+    32 |
+
+validateIndentation: Invalid indentation character: 	 at C:\Users\n501457\github\pluralsight\building-web-applications\gulpfile.js :
+    29 | return gulp.src('./src/views/*.html')
+    30 |  .pipe(wiredep(options))
+    31 |  .pipe(gulp.dest('./src/views'));
+--------^
+    32 |
+    33 |});
+
+
+28 code style errors found.
+[11:35:35] Finished 'style' after 587 ms
