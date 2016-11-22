@@ -17,7 +17,9 @@ gulp.task('style', function () {
 
 gulp.task('fix', function () {
 	return gulp.src(jsFiles)
-		.pipe(jscs({fix: true}))
+		.pipe(jscs({
+			fix: true
+		}))
 		.pipe(gulp.dest('src'));
 });
 
@@ -32,9 +34,11 @@ gulp.task('inject', function () {
 	};
 
 	var injectSrc = gulp.src([
-		'./public/css/*.css', 
+		'./public/css/*.css',
 		'./public/js/*.js'
-	], { read: false });
+	], {
+		read: false
+	});
 
 	var injectOptions = {
 		ignorePath: '/public'
@@ -43,20 +47,21 @@ gulp.task('inject', function () {
 	return gulp.src('./src/views/*.html')
 		.pipe(wiredep(options))
 		.pipe(inject(injectSrc, injectOptions))
-		.pipe(gulp.dest('./src/views'))
-		
+		.pipe(gulp.dest('./src/views'));
 });
 
 gulp.task('serve', ['style', 'inject'], function () {
 	var options = {
 		script: 'app.js',
-		delayTime: 1,
-		env: {'PORT': 5000},
+		delayTime: 5,
+		env: {
+			'PORT': 5000
+		},
 		watch: jsFiles
 	};
 
 	return nodemon(options)
-		.on('restart', function(ev) {
-			console.log('Restarting...');	
+		.on('restart', function (ev) {
+			console.log(ev || ('Restarting...'));
 		});
 });
