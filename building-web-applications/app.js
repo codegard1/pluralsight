@@ -6,11 +6,11 @@ var port = process.env.PORT || 5000;
 app.use(express.static('public'));
 app.set('views', 'src/views');
 /* Jade config */
-//app.set('view engine', 'jade');
+app.set('view engine', 'jade');
 
 /* handlebars config */
-app.engine('.hbs', handlebars({extname: '.hbs'}));
-app.set('view engine', '.hbs');
+//app.engine('.hbs', handlebars({extname: '.hbs'}));
+//app.set('view engine', '.hbs');
 
 app.get('/', function (req, res) {
     res.render('index', {
