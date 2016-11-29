@@ -14,7 +14,8 @@ app.set('view engine', '.hbs');
 
 app.get('/', function (req, res) {
     res.render('index', {
-        list: ['1', '2', '3', '4', '5']
+        list: ['1', '2', '3', '4', '5'],
+        title: 'My Cool App'
     });
 });
 
