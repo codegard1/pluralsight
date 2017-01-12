@@ -1,5 +1,5 @@
 var express = require('express');
-var handlebars = require('express-handlebars');
+//var handlebars = require('express-handlebars');
 var app = express();
 var port = process.env.PORT || 5000;
 
@@ -14,8 +14,14 @@ app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
     res.render('index', {
-        list: ['1', '2', '3', '4', '5'],
-        title: 'My Cool App'
+        title: 'My Cool App',
+        nav: [{
+                Link: '/Books',
+                Text: 'Books'
+            },{
+                Link: '/Authors',
+                Text: 'Authors'
+            }]
     });
 });
 
