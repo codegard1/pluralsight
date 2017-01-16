@@ -1,4 +1,4 @@
 {
     "eslint.enable": true,
-    "puglint.enable": true
+    "puglint.enable": false
 }
