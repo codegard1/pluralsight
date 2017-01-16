@@ -14,7 +14,7 @@ var config = {
     }
 };
 sql.connect(config, function(err) {
-    err === null ? console.log('sql.connect() successful') : console.log(err);
+    console.log(err === null ? 'sql.connect() successful' : err);
 });
 
 app.use(express.static('public'));
@@ -27,10 +27,10 @@ app.set('view engine', 'jade'); // jade config
 
 var nav = [{
     Link: '/Books',
-    Text: 'Booksy Books'
+    Text: 'Books'
 }, {
     Link: '/Authors',
-    Text: 'Authorsz0r'
+    Text: 'Authors'
 }];
 
 var bookRouter = require('./src/routes/bookRoutes')(nav);
@@ -41,13 +41,7 @@ app.use('/Authors', authorRouter);
 app.get('/', function (req, res) {
     res.render('index', {
         title: 'My Cool App',
-        nav: [{
-            Link: '/Books',
-            Text: 'Books'
-        },{
-            Link: '/Authors',
-            Text: 'Authors'
-        }]
+        nav: nav
     });
 });
 

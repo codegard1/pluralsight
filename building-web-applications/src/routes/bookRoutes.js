@@ -50,6 +50,7 @@ var router = function (nav) {
             author: 'Stuart Woods'
         }
     ];
+    var books1 = {};
     bookRouter.route('/')
         .get(function (req, res) {
             var request = new sql.Request();
@@ -57,12 +58,13 @@ var router = function (nav) {
             request.query('select * from books',
                 function(err, recordset) {
                     console.log(recordset);
+                    books1 = recordset;
                 }
             );
             res.render('bookListView', {
                 title: 'Books',
                 nav: nav,
-                books: books
+                books: books1
             });
         });
     bookRouter.route('/:id')
