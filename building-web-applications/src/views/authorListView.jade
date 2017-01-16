@@ -17,21 +17,16 @@ html
         //-endinject
         title MyApp
     body(class="myClass")
-        h1(id="myId") MyApp
+        h1(id="myId", arbitraryProp="sugar") MyApp
         p
             h3 Navigation
             ul
                 each val in nav
                     a(href= val.Link) 
                         li= val.Text
-        hr
         p
-            h3 Books
-            each book in books
-                div
-                    ul
-                        li= book.title
-                        a(href= '#')
-                            li= book.author
-                        a(href= '#')
-                            li Read More
+            h3 Authors
+            ul
+                each val in authors
+                    a(href= val.id)
+                        li= val.author

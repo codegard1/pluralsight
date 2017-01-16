@@ -1,5 +1,5 @@
 var express = require('express');
-var bookRouter = express.Router();
+var authorRouter = express.Router();
 
 var router = function (nav) {
     var books = [
@@ -49,23 +49,23 @@ var router = function (nav) {
             author: 'Stuart Woods'
         }
     ];
-    bookRouter.route('/')
+    authorRouter.route('/')
         .get(function (req, res) {
-            res.render('bookListView', {
-                title: 'Books',
+            res.render('authorListView', {
+                title: 'Authors',
                 nav: nav,
-                books: books
+                authors: books
             });
         });
-    bookRouter.route('/:id')
+    authorRouter.route('/:id')
         .get(function (req, res) {
             var id = req.params.id;
-            res.render('bookView', {
-                title: 'Book',
+            res.render('authorView', {
+                title: 'Author',
                 nav: nav,
-                book: books[id]
+                author: books[id]
             });
         });
-    return bookRouter;
+    return authorRouter;
 };
 module.exports = router;

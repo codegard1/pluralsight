@@ -1,0 +1,36 @@
+html
+    head
+        //- bower:css
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')
+        //- endbower
+        //- bower:js
+        script(src='/lib/jquery/dist/jquery.js')
+        script(src='/lib/bootstrap/dist/js/bootstrap.js')
+        //- endbower
+
+        //-inject:css
+        link(rel="stylesheet", href="/css/styles.css")
+        //-endinject
+        //-inject:js
+        script(src="/js/app.js")
+        //-endinject
+        title MyApp
+    body(class="myClass")
+        h1(id="myId") MyApp
+        p
+            h3 Navigation
+            ul
+                each val in nav
+                    a(href= val.Link) 
+                        li= val.Text
+        p
+            h3 Books
+            each book in books
+                div
+                    ul
+                        li= book.title
+                        a(href= '#')
+                            li= book.author
+                        a(href= 'Books/' + book.id)
+                            li Read More

@@ -49,17 +49,17 @@ gulp.task('inject', function () {
 		.pipe(inject(injectSrc, injectOptions))
 		.pipe(gulp.dest('./src/views')); */
 
-	/* return gulp.src('./src/views/*.jade')
+	return gulp.src('./src/views/*.jade')
 		.pipe(wiredep(options))
 		.pipe(inject(injectSrc, injectOptions))
 		.pipe(gulp.dest('./src/views'));
-	}); */
+	}); 
 
-	return gulp.src('./src/views/*.hbs')
+	/*return gulp.src('./src/views/*.hbs')
 		.pipe(wiredep(options))
 		.pipe(inject(injectSrc, injectOptions))
 		.pipe(gulp.dest('./src/views'));
-	});
+	});*/
 
 gulp.task('serve', ['style', 'inject'], function () {
 	var options = {
