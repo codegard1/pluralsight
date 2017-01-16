@@ -14,8 +14,7 @@ var config = {
     }
 };
 sql.connect(config, function(err) {
-    console.log('sql.connect()');
-    console.log(err);
+    err === null ? console.log('sql.connect() successful') : console.log(err);
 });
 
 app.use(express.static('public'));
