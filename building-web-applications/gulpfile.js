@@ -53,7 +53,7 @@ gulp.task('inject', function () {
 		.pipe(wiredep(options))
 		.pipe(inject(injectSrc, injectOptions))
 		.pipe(gulp.dest('./src/views'));
-	}); 
+	});
 
 	/*return gulp.src('./src/views/*.hbs')
 		.pipe(wiredep(options))
