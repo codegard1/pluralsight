@@ -6,7 +6,7 @@
 }
 
 body {
-  padding-top:50px;
+  padding:50px;
   color:#646464;
   background-color:#efefef;
 }
@@ -16,7 +16,6 @@ h1,h2,h3,.highlight,.navbar a,#masthead h4 {
 }
 
 footer {
-
   margin-top:40px;
   padding-top:40px;
   padding-bottom:40px;
