@@ -68,19 +68,20 @@ var router = function (nav) {
         });
     bookRouter.route('/:id')
         .get(function (req, res) {
-            var id = req.params.id;
-            var request = new sql.Request();
-            request.query('select id,Title,Author from books where id = ' + id,
-                function(err, recordset) {
-                    console.log(err || recordset);
-                    res.render('bookView', {
-                        title: 'Book',
-                        nav: nav,
-                        book: recordset[0]
-                    });
-                }
-            );
-            
+            var ps = new sql.PreparedStatement();
+            ps.input('id', sql.Int);
+            ps.prepare('select * from books where id = @id',
+                function (err) {
+                    ps.execute({ id: req.params.id },
+                        function (err, recordset) {
+                            console.log(err || recordset);
+                            res.render('bookView', {
+                                title: 'Book',
+                                nav: nav,
+                                book: recordset[0]
+                            });
+                        });
+                }); // end ps.prepare()
         });
     return bookRouter;
 };
