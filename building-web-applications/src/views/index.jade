@@ -15,12 +15,12 @@ html
         //-inject:js
         script(src="/js/app.js")
         //-endinject
-        title MyApp
+        title= title
     body(class="myClass")
-        h1(id="myId", arbitraryProp="sugar") MyApp
-        p
-            h3 Navigation
-            ul
-                each val in nav
-                    a(href= val.Link) 
-                        li= val.Text
+        h1(id="myId") Library
+        
+        h3 Navigation
+        ul
+            each val in nav
+                a(href= val.Link) 
+                    li= val.Text

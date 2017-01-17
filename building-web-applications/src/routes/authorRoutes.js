@@ -3,16 +3,20 @@ var authorRouter = express.Router();
 var sql = require('mssql');
 
 var router = function (nav) {
-    var author, authors;
+    var author = {};
+    var authors = {};
+
     authorRouter.route('/')
         .get(function (req, res) {
             var request = new sql.Request();
             request.query('select id,Author from books', 
                 function(err, recordset) {
-                    console.log(recordset);
-                    authors = recordset;
+                    if (!err) {
+                        console.log(recordset);
+                        authors = recordset;
+                    }
                 }
-            );
+            ); // end query
             res.render('authorListView', {
                 title: 'Authors',
                 nav: nav,
@@ -25,10 +29,12 @@ var router = function (nav) {
             var request = new sql.Request();
             request.query('select id,Author from books where id = ' + id, 
                 function(err, recordset) {
-                    console.log(recordset);
-                    author = recordset;
+                    if (!err) {
+                        console.log(recordset[0]);
+                        author = recordset[0];
+                    }
                 }
-            );
+            ); // end query
             res.render('authorView', {
                 title: 'Author',
                 nav: nav,

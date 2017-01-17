@@ -15,17 +15,15 @@ html
         //-inject:js
         script(src="/js/app.js")
         //-endinject
-        title= book.title
-
+        title= title
     body(class="myClass")
-        h1(id="myId") MyApp
-        p
-            h3 Navigation
-            ul
-                each val in nav
-                    a(href= val.Link) 
-                        li= val.Text
-        p
-            h3= book.title
-            h4= 'By ' + book.author
+        h1(id="myId") Library
+        h3 Navigation
+        ul
+            each val in nav
+                a(href= val.Link) 
+                    li= val.Text
+
+        h3= book.Title
+        h4= 'By ' + book.Author
             

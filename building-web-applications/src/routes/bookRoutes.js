@@ -51,14 +51,17 @@ var router = function (nav) {
         }
     ];
     var books1 = {};
+    var book1 = {};
     bookRouter.route('/')
         .get(function (req, res) {
             var request = new sql.Request();
             console.log('request.query()');
             request.query('select * from books',
-                function(err, recordset) {
-                    console.log(recordset);
-                    books1 = recordset;
+                function (err, recordset) {
+                    if (!err) {
+                        console.log(recordset);
+                        books1 = recordset;
+                    }
                 }
             );
             res.render('bookListView', {
@@ -70,10 +73,19 @@ var router = function (nav) {
     bookRouter.route('/:id')
         .get(function (req, res) {
             var id = req.params.id;
+            var request = new sql.Request();
+            request.query('select id,Title,Author from books where id = ' + id,
+                function(err, recordset) {
+                    if(!err) {
+                        console.log(recordset[0]);
+                        book1 = recordset[0];
+                    }
+                }
+            );
             res.render('bookView', {
                 title: 'Book',
                 nav: nav,
-                book: books[id]
+                book: book1
             });
         });
     return bookRouter;

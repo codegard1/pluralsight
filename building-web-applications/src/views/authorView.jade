@@ -16,6 +16,7 @@ html
         script(src="/js/app.js")
         //-endinject
         title= title
+
     body(class="myClass")
         h1(id="myId") Library
 
@@ -24,11 +25,6 @@ html
             each val in nav
                 a(href= val.Link) 
                     li= val.Text
-                    
-        h3 Books
-        each book in books
-            h4= book.Title
-            a(href= '#')
-                h5= book.Author
-            a(href= 'Books/' + book.id)
-                h5 Read More
+
+        h3= author.Author
+            
