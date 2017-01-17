@@ -67,22 +67,30 @@ var router = function (nav) {
             
         });
     bookRouter.route('/:id')
-        .get(function (req, res) {
+        .all(function (req, res, next) {
             var ps = new sql.PreparedStatement();
             ps.input('id', sql.Int);
             ps.prepare('select * from books where id = @id',
                 function (err) {
                     ps.execute({ id: req.params.id },
                         function (err, recordset) {
-                            console.log(err || recordset);
-                            res.render('bookView', {
-                                title: 'Book',
-                                nav: nav,
-                                book: recordset[0]
-                            });
+                            if (recordset.length === 0) {
+                                res.status(404).send('Not found');
+                            } else {
+                                console.log(err || recordset);
+                                req.book = recordset[0];
+                                next();
+                            }
                         });
                 }); // end ps.prepare()
+        })
+    .get(function (req, res) {
+        res.render('bookView', {
+            title: 'Book',
+            nav: nav,
+            book: req.book
         });
+    });
     return bookRouter;
 };
 module.exports = router;
