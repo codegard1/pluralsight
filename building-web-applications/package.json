@@ -7,6 +7,7 @@
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "jade": "^1.11.0",
+    "mongodb": "^2.2.21",
     "mssql": "^2.3.0"
   },
   "devDependencies": {

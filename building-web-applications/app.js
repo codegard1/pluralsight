@@ -37,6 +37,8 @@ var bookRouter = require('./src/routes/bookRoutes')(nav);
 app.use('/Books', bookRouter);
 var authorRouter = require('./src/routes/authorRoutes')(nav);
 app.use('/Authors', authorRouter);
+var adminRouter = require('./src/routes/adminRoutes')(nav);
+app.use('/Admin', adminRouter);
 
 app.get('/', function (req, res) {
     res.render('index', {
