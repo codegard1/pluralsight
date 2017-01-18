@@ -2,8 +2,8 @@ var express = require('express');
 //var handlebars = require('express-handlebars');
 var app = express();
 var port = process.env.PORT || 5000;
-var sql = require('mssql');
-var config = {
+//var sql = require('mssql');
+/*var config = {
     user: 'node',
     password: 'pluralsight',
     server: 'D4358059',
@@ -15,7 +15,7 @@ var config = {
 };
 sql.connect(config, function(err) {
     console.log(err || 'sql.connect() successful');
-});
+});*/
 
 app.use(express.static('public'));
 app.set('views', 'src/views');
