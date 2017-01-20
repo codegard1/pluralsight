@@ -27,8 +27,8 @@ html
                     
         h3 Books
         each book in books
-            h4= book.Title
+            h4= book.title || book.Title
             a(href= '#')
-                h5= book.Author
-            a(href= 'Books/' + book.id)
+                h5= book.Author || book.author
+            a(href= 'Books/' + book._id)
                 h5 Read More
