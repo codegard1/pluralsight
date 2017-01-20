@@ -9,7 +9,8 @@ var router = function (nav) {
         .get(function (req, res) {
 
             // MongoDB config
-            var url = 'mongodb://el-oso:27017/LibraryApp';
+            //var url = 'mongodb://el-oso:27017/LibraryApp';
+            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
             mongodb.connect(url, function(err, db) {
                 var collection = db.collection('books');
                 collection.find().toArray(
@@ -43,7 +44,8 @@ var router = function (nav) {
 
              // MongoDB config
             var id = new objectId(req.params.id);
-            var url = 'mongodb://el-oso:27017/LibraryApp';
+            //var url = 'mongodb://el-oso:27017/LibraryApp';
+            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
             mongodb.connect(url, function(err, db) {
                 var collection = db.collection('books');
                 collection.findOne({_id: id},
