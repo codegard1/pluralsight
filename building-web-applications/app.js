@@ -1,9 +1,15 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 //var handlebars = require('express-handlebars');
+
 var app = express();
 var port = process.env.PORT || 5000;
-//var sql = require('mssql');
-/*var config = {
+
+// MSSQL Connection
+/* var sql = require('mssql');
+var config = {
     user: 'node',
     password: 'pluralsight',
     server: 'D4358059',
@@ -17,13 +23,22 @@ sql.connect(config, function(err) {
     console.log(err || 'sql.connect() successful');
 });*/
 
+// MIDDLEWARE
 app.use(express.static('public'));
-app.set('views', 'src/views');
-app.set('view engine', 'jade'); // jade config
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(cookieParser());
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'library'
+}));
+require('./src/config/passport')(app);
 
-/* handlebars config */
-//app.engine('.hbs', handlebars({extname: '.hbs'}));
-//app.set('view engine', '.hbs');
+app.set('views', 'src/views');
+app.set('view engine', 'jade');
 
 var nav = [{
     Link: '/Books',
@@ -39,6 +54,8 @@ var authorRouter = require('./src/routes/authorRoutes')(nav);
 app.use('/Authors', authorRouter);
 var adminRouter = require('./src/routes/adminRoutes')(nav);
 app.use('/Admin', adminRouter);
+var authRouter = require('./src/routes/authRoutes')();
+app.use('/auth', authRouter);
 
 app.get('/', function (req, res) {
     res.render('index', {

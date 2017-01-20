@@ -2,7 +2,7 @@ var express = require('express');
 var bookRouter = express.Router();
 //var sql = require('mssql');
 var mongodb = require('mongodb').MongoClient;
-var objectId = require('mongodb').ObjectID;
+var ObjectID = require('mongodb').ObjectID;
 
 var router = function (nav) {
     bookRouter.route('/')
@@ -45,7 +45,7 @@ var router = function (nav) {
         .all(function (req, res, next) {
 
             // MongoDB config
-            var id = new objectId(req.params.id);
+            var id = new ObjectID(req.params.id);
             //var url = 'mongodb://el-oso:27017/LibraryApp';
             var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
             mongodb.connect(url, function (err, db) {
