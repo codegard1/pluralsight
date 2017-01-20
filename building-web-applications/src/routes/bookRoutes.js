@@ -9,11 +9,13 @@ var router = function (nav) {
         .get(function (req, res) {
 
             // MongoDB config
-            var url = 'mongodb://el-oso:27017/LibraryApp';
-            mongodb.connect(url, function(err, db) {
+            //var url = 'mongodb://el-oso:27017/LibraryApp';
+            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
+            mongodb.connect(url, function (err, db) {
+                if(err){console.log(err);}
                 var collection = db.collection('books');
                 collection.find().toArray(
-                    function(err, results) {
+                    function (err, results) {
                         res.render('bookListView', {
                             title: 'Books',
                             nav: nav,
@@ -23,7 +25,7 @@ var router = function (nav) {
                     }
                 );
             });
-            
+
             // SQL Config
             /*var request = new sql.Request();
             console.log('request.query()');
@@ -37,7 +39,7 @@ var router = function (nav) {
                     });
                 }
             );*/
-            
+
         }); // end .get
 
     bookRouter.route('/:id')
@@ -45,11 +47,14 @@ var router = function (nav) {
 
             // MongoDB config
             var id = new objectId(req.params.id);
-            var url = 'mongodb://el-oso:27017/LibraryApp';
-            mongodb.connect(url, function(err, db) {
+            //var url = 'mongodb://el-oso:27017/LibraryApp';
+            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
+            mongodb.connect(url, function (err, db) {
                 var collection = db.collection('books');
-                collection.findOne({_id: id},
-                    function(err, result) {
+                collection.findOne({
+                        _id: id
+                    },
+                    function (err, result) {
                         if (result.length === 0) {
                             res.status(404).send('Not Found');
                         } else {
@@ -81,13 +86,13 @@ var router = function (nav) {
             ); // end ps.prepare()*/
 
         })
-    .get(function (req, res) {
-        res.render('bookView', {
-            title: 'Book',
-            nav: nav,
-            book: req.book
+        .get(function (req, res) {
+            res.render('bookView', {
+                title: 'Book',
+                nav: nav,
+                book: req.book
+            });
         });
-    });
     return bookRouter;
 };
 module.exports = router;

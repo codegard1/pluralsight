@@ -9,11 +9,12 @@ var router = function (nav) {
         .get(function (req, res) {
 
             // MongoDB config
-            var url = 'mongodb://el-oso:27017/LibraryApp';
-            mongodb.connect(url, function(err, db) {
+            //var url = 'mongodb://el-oso:27017/LibraryApp';
+            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
+            mongodb.connect(url, function (err, db) {
                 var collection = db.collection('books');
                 collection.find().toArray(
-                    function(err, results) {
+                    function (err, results) {
                         res.render('authorListView', {
                             title: 'Authors',
                             nav: nav,
@@ -36,18 +37,21 @@ var router = function (nav) {
                     });
                 }
             ); // end query */
-            
+
         });
     authorRouter.route('/:id')
         .get(function (req, res) {
 
-             // MongoDB config
+            // MongoDB config
             var id = new objectId(req.params.id);
-            var url = 'mongodb://el-oso:27017/LibraryApp';
-            mongodb.connect(url, function(err, db) {
+            //var url = 'mongodb://el-oso:27017/LibraryApp';
+            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
+            mongodb.connect(url, function (err, db) {
                 var collection = db.collection('books');
-                collection.findOne({_id: id},
-                    function(err, result) {
+                collection.findOne({
+                        _id: id
+                    },
+                    function (err, result) {
                         if (result.length === 0) {
                             res.status(404).send('Not Found');
                         } else {
@@ -56,26 +60,26 @@ var router = function (nav) {
                                 title: 'Author',
                                 nav: nav,
                                 author: result
-                                });
+                            });
                         }
                         db.close();
                     }
                 );
             });
             // SQL Config
-           /*var id = req.params.id;
-            var request = new sql.Request();
-            request.query('select id,Author from books where id = ' + id, 
-                function(err, recordset) {
-                    console.log(err || recordset);
-                    res.render('authorView', {
-                        title: 'Author',
-                        nav: nav,
-                        author: recordset[0]
-                    });
-                }
-            ); // end query */
-            
+            /*var id = req.params.id;
+             var request = new sql.Request();
+             request.query('select id,Author from books where id = ' + id, 
+                 function(err, recordset) {
+                     console.log(err || recordset);
+                     res.render('authorView', {
+                         title: 'Author',
+                         nav: nav,
+                         author: recordset[0]
+                     });
+                 }
+             ); // end query */
+
         });
     return authorRouter;
 };
