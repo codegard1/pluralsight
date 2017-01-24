@@ -2,6 +2,7 @@ var express = require('express');
 var authorRouter = express.Router();
 //var sql = require('mssql');
 var mongodb = require('mongodb').MongoClient;
+var url = require('../config/db');
 var ObjectID = require('mongodb').ObjectID;
 
 var router = function (nav) {
@@ -9,8 +10,6 @@ var router = function (nav) {
         .get(function (req, res) {
 
             // MongoDB config
-            //var url = 'mongodb://el-oso:27017/LibraryApp';
-            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
             mongodb.connect(url, function (err, db) {
                 var collection = db.collection('books');
                 collection.find().toArray(
@@ -44,8 +43,6 @@ var router = function (nav) {
 
             // MongoDB config
             var id = new ObjectID(req.params.id);
-            //var url = 'mongodb://el-oso:27017/LibraryApp';
-            var url = 'mongodb://mg000xscrs00:27017/LibraryApp';
             mongodb.connect(url, function (err, db) {
                 var collection = db.collection('books');
                 collection.findOne({

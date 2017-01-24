@@ -6,15 +6,15 @@ module.exports = function () {
     authRouter.route('/signUp')
         .post(function (req, res) {
             console.log(req.body);
-            res.login(req.body, function () {
+            req.login(req.body, function () {
                 res.redirect('/auth/profile');
             });
-        });
+        }); // end .post()
 
     authRouter.route('/profile')
         .get(function (req, res) {
             res.json(req.user);
-        });
+        }); // end .get()
 
     return authRouter;
 };
