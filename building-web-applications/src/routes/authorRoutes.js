@@ -6,6 +6,16 @@ var url = require('../config/db');
 var ObjectID = require('mongodb').ObjectID;
 
 var router = function (nav) {
+
+    // Disallow access if user is not signed in
+    authorRouter.use(function(req,res,next) {
+        if(!req.user) {
+            console.log('no user; redirecting to /');
+            res.redirect('/');
+        }
+        next();
+    });
+
     authorRouter.route('/')
         .get(function (req, res) {
 

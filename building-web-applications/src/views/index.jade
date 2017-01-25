@@ -17,18 +17,28 @@ html
         //-endinject
         title= title
     body(class="myClass")
-        h1(id="myId") Library
+        h1(id="myId")
+            a(href="/") Library
         
         h3 Navigation
-        ul
-            each val in nav
-                a(href= val.Link) 
-                    li= val.Text
+        each val in nav
+            a(href= val.Link) 
+                h4= val.Text 
 
-
-        h3 Login
+        h3 Sign Up
         div
             form(name="signupform", action="/auth/signUp", method="post")
-                input(name="userName", id="userName")
-                input(name="password", id="password")
+                p Username: &nbsp;
+                    input(type="text", name="userName", id="userName")
+                p Password: &nbsp;
+                    input(type="password", name="password", id="password")
                 input(type="submit", value="Sign Up")
+
+        h3 Sign In
+        div
+            form(name="signinform", action="/auth/signin", method="post")
+                p Username: &nbsp;
+                    input(type="text", name="userName", id="userName")
+                p Password: &nbsp;
+                    input(type="password", name="password", id="password")
+                input(type="submit", value="Sign In")
