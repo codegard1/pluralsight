@@ -17,13 +17,13 @@ html
         //-endinject
         title= title
     body(class="myClass")
-        h1(id="myId") Library
+        h1(id="myId")
+            a(href="/") Library
 
         h3 Navigation
-        ul
-            each val in nav
-                a(href= val.Link) 
-                    li= val.Text
+        each val in nav
+            a(href= val.Link) 
+                h4= val.Text 
                     
         h3 Books
         each book in books

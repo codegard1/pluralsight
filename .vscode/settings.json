@@ -1,4 +1,9 @@
 {
     "eslint.enable": true,
-    "puglint.enable": false
+    "puglint.enable": false,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/lib": true
+    }
 }
