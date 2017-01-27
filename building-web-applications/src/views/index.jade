@@ -29,6 +29,8 @@ html
         h3 Login
         div
             form(name="signupform", action="/auth/signUp", method="post")
-                input(name="userName", id="userName")
-                input(name="password", id="password")
+                p Username
+                    input(name="userName", id="userName")
+                p Password
+                    input(name="password", id="password")
                 input(type="submit", value="Sign Up")

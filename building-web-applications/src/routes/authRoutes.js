@@ -14,12 +14,11 @@ module.exports = function () {
                     password: req.body.password
                 };
                 collection.insert(user, function (err, results) {
-                    req.login(results, function () {
+                    req.login(results[0], function () {
                         res.redirect('/auth/profile');
                     });
                 });
             });
-
         }); // end .post()
 
     authRouter.route('/profile')
